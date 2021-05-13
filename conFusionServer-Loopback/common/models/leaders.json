@@ -10,6 +10,11 @@
       "type": "string",
       "required": true
     },
+    "mixins": {
+      "type": {
+        "TimeStamp": true
+      }
+    },
     "image": {
       "type": "string",
       "required": true
@@ -40,6 +45,12 @@
       "accessType": "READ",
       "principalType": "ROLE",
       "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "admin",
       "permission": "ALLOW"
     }
   ],

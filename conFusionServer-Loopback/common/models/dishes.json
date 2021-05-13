@@ -10,6 +10,11 @@
       "type": "string",
       "required": true
     },
+    "mixins": {
+      "type": {
+        "TimeStamp": true
+      }
+    },
     "description": {
       "type": "string",
       "required": true
@@ -35,7 +40,18 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "comments": {
+      "type": "hasMany",
+      "model": "comments",
+      "foreignKey": ""
+    },
+    "favorites": {
+      "type": "hasMany",
+      "model": "Favorite",
+      "foreignKey": ""
+    }
+  },
   "acls": [
     {
       "accessType": "*",
@@ -55,6 +71,12 @@
       "principalId": "admin",
       "permission": "ALLOW",
       "property": "create"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
     }
   ],
   "methods": {}
