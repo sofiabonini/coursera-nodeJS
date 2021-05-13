@@ -18,7 +18,7 @@ bookRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post(authenticate.verifyUser, (req, res, next) => {
+.post((req, res, next) => {
     Books.create(req.body)
     .then((book) => {
         console.log('Book Created ', book);
@@ -28,11 +28,11 @@ bookRouter.route('/')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.put(authenticate.verifyUser, (req, res, next) => {
+.put((req, res, next) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /books');
 })
-.delete(authenticate.verifyUser, (req, res, next) => {
+.delete((req, res, next) => {
     Books.remove({})
     .then((resp) => {
         res.statusCode = 200;
@@ -52,11 +52,11 @@ bookRouter.route('/:isbn')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.post(authenticate.verifyUser, (req, res, next) => {
+.post((req, res, next) => {
     res.statusCode = 403;
     res.end('POST operation not supported on /books/'+ req.params.isbn);
 })
-.put(authenticate.verifyUser, (req, res, next) => {
+.put((req, res, next) => {
     Books.findByIdAndUpdate(req.params.isbn, {
         $set: req.body
     }, { new: true })
@@ -67,7 +67,7 @@ bookRouter.route('/:isbn')
     }, (err) => next(err))
     .catch((err) => next(err));
 })
-.delete(authenticate.verifyUser, (req, res, next) => {
+.delete((req, res, next) => {
     Books.findByIdAndRemove(req.params.isbn)
     .then((resp) => {
         res.statusCode = 200;
