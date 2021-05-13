@@ -1,0 +1,21 @@
+{
+  "books": [
+    {
+      "title": "Frankenstein",
+	  "author": "Mary Shelly",
+      "image": "images/frankenstein.png",
+      "description": "A book about a dead man",
+      "publishingCompany": "Atlas",
+      "year": "1818",
+      "isbn": "1"
+    },
+    {
+      "title": "Stolz und Vorurteil",
+	  "author": "Jane Austen",
+      "image": "images/stolzUVorurteil.png",
+      "description": "A book about Darcy",
+      "publishingCompany": "Atlas",
+      "year": "1775",
+      "isbn": "2"
+    }
+  ]
